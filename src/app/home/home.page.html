@@ -1,0 +1,67 @@
+
+
+<ion-content padding class="main">
+  <h1>CRUD ESTUDIANTE</h1>
+  <ion-item *ngFor="let item of Estudiantes">
+
+    <ion-grid>
+      <h3>Estudiante</h3>
+      <ion-row>
+    
+
+      <ion-col style="color:red; font-family: Arial Black;" >Nombre</ion-col>
+      <ion-col  style="color:red; font-family: Arial Black;">Apellido</ion-col>
+      <ion-col  style="color:red; font-family: Arial Black;">Matricula</ion-col>
+      <ion-col  style="color:red; font-family: Arial Black;">Acciones</ion-col>
+ 
+
+      
+
+      <ion-col>{{item.name}}</ion-col>
+      <ion-col>{{item.lastname}}</ion-col>
+      <ion-col>{{item.cedula}}</ion-col>
+    
+
+
+      <ion-col>
+      <button [hidden]="visibleedit" (click)="edit(item)"  expand="small">Editar</button>
+      <button [hidden]="visibleUddate" (click)="execute(this.addEstudiantes)">Actualizar</button>
+      <button (click)="delete(item.name)">Elimar</button> 
+    </ion-col>
+    
+
+    </ion-row>
+   </ion-grid>
+
+ 
+
+    
+  
+    </ion-item>
+
+
+    
+    <ion-item>
+      <ion-label color="primary" stacked>Nombre:</ion-label>
+      <ion-input type="text" [(ngModel)]="addEstudiantes.name" placeholder="Ingresa tu nombre"></ion-input>
+    </ion-item> 
+  
+    <ion-item>
+      <ion-label color="primary" stacked>Apellido:</ion-label>
+      <ion-input type="text" [(ngModel)]="addEstudiantes.lastname" placeholder="Ingresa tu apellido"></ion-input>
+    </ion-item> 
+  
+    <ion-item>
+      <ion-label color="primary" stacked>Matricula:</ion-label>
+      <ion-input type="text" [(ngModel)]="addEstudiantes.cedula" placeholder="Ingresa tu matricula"></ion-input>
+    </ion-item> 
+  
+  
+  
+ 
+ 
+  
+ 
+  <ion-button expand="full" color="success" (click)="add(addEstudiantes)">Añadir</ion-button>
+  
+</ion-content>
